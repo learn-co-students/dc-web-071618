@@ -6,7 +6,7 @@
 
 - Video and code made available after lecture
 
-- `rspec`; `rspec --fail-fast`
+- rspec; rspec --fail-fast
     - can run a specific file: `spec/rspec hashketball_spec.rb`
     - or a specific test: `spec/rspec hashketball_spec.rb:29`
 
@@ -22,12 +22,13 @@
 
 - Define `num_points_scored`.  When you get to the second test, a lot of code is going to end up being repeated.  Define `get_all_players` and `get_player_info` as "helper methods"
 
-- Discuss `map` vs `each`, `select` vs `find`.  Do some examples with numbers and stuff
+- Discuss map vs each, select vs find.  Do some examples with numbers and stuff
 
 ```
 instructors = [
   {name: "Paul", college: "Rutgers"},
-  {name: "Sam", college: "GW"},
+  {name: "Morgan", college: "BYU"},
+  {name: "Melanie", college: "Michigan"}
 ]
 
 colleges = instructors.map do |instructor|
