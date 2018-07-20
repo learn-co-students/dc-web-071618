@@ -26,3 +26,8 @@ Based off of yesterday's code, we're going to add the ability to like a tweet. W
   * `#liked_tweets` that returns a collection of all the tweets this user has liked
 * Tweet class
   * `#likers` that returns a collection of all the Users who have liked this tweet
+
+* Like class
+  * `Like#tweet` - what tweet was liked
+  * `Like#user` - which user liked this tweet
+  * `Like.all` - return all the likes
