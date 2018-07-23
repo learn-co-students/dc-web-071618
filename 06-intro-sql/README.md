@@ -1,64 +1,86 @@
 # Intro to SQL
 
-1. Install the SQLite Browser if you haven't already [here](http://sqlitebrowser.org/)
-2. Open the SQLite Browser and click 'File -> Open DataBase'
-3. Choose the `chinook.db` file from this repo. This database is open source and maintained by Microsoft (SQL is no fun if you don't have any data)
-4. Click the tab that says 'Execute SQL'. Type SQL queries in the box above. Press the play button. See the results of that query in the box below
+1.  Install the SQLite Browser if you haven't already [here](http://sqlitebrowser.org/)
+2.  Open the SQLite Browser and click 'File -> Open DataBase'
+3.  Choose the `chinook.db` file from this repo. This database is open source and maintained by Microsoft (SQL is no fun if you don't have any data)
+4.  Click the tab that says 'Execute SQL'. Type SQL queries in the box above. Press the play button. See the results of that query in the box below
+
+WHY Sql?
+
+- storing information
+- accessing information
+- updating information
+- tables in a sqlite3 database
+- database = many tables
+- programatically sift through data
+- external memory for storing data
+
+What is a Primary key?
+
+- Unique ID on one row
+- way to relate data
+- auto - incrementing number
+- corresponds to lines
+-
 
 ## Challenges
 
-1. Write the SQL to return all of the rows in the artists table?
+1.  Write the SQL to return all of the rows in the artists table?
 
 ```SQL
-
+    SELECT * FROM artists
 ```
 
-2. Write the SQL to select the artist with the name "Black Sabbath"
+2.  Write the SQL to select the artist with the name "Black Sabbath"
 
 ```SQL
-
+SELECT * FROM artists WHERE name='Buddy Guy'
+SELECT * FROM artists WHERE artistId='122'
 ```
 
-3. Write the SQL to create a table named 'fans' with an autoincrementing ID that's a primary key and a name field of type text
+3.  Write the SQL to create a table named 'fans' with an autoincrementing ID that's a primary key and a name field of type text
 
 ```sql
-
+CREATE TABLE fans(id INTEGER PRIMARY KEY, name TEXT);
 ```
 
-4. Write the SQL to alter the fans table to have a artist_id column type integer?
+4.  Write the SQL to alter the fans table to have a artist_id column type integer?
 
 ```sql
+  why would we want to put an artist_id in the fans table?
 
+  --> table relationships!
+  ALTER TABLE fans ADD COLUMN artist_id INTEGER
 ```
 
-5. Write the SQL to add yourself as a fan of the Black Eyed Peas? ArtistId **169**
+5.  Write the SQL to add yourself as a fan of the Black Eyed Peas? ArtistId **169**
 
 ```sql
-
+INSERT INTO fans (name, artist_id) VALUES ('Sam', 276)
 ```
 
-6. Check out the [Faker gem](https://github.com/stympy/faker). `gem install faker`, open up irb, run `require 'faker'` and then generate a fake name for yourself using `Faker::Name.name`. How would you update your name in the fans table to be your new name?
+6.  Check out the [Faker gem](https://github.com/stympy/faker). `gem install faker`, open up irb, run `require 'faker'` and then generate a fake name for yourself using `Faker::Name.name`. How would you update your name in the fans table to be your new name?
 
-   ```sql
+    ```sql
+    UPDATE fans SET name="Braulio Waelchi" where name="Sam"
+    ```
 
-   ```
-
-7. Write the SQL to return fans that are not fans of the black eyed peas.
+7.  Write the SQL to return fans that are not fans of the black eyed peas.
 
 ```sql
-
+   SELECT * FROM fans where artist_id !=169
 ```
 
-8. Write the SQL to display an artists name next to their album title
+8.  Write the SQL to display an artists name next to their album title
 
 ```sql
-
+SELECT artists.name, albums.Title FROM albums INNER JOIN artists on artists.ArtistId = albums.artistId;
 ```
 
-9. Write the SQL to display artist name, album name and number of tracks on that album
+9.  Write the SQL to display artist name, album name and number of tracks on that album
 
 ```sql
-
+SELECT artists.name, albums.Title, COUNT(tracks.name) FROM albums INNER JOIN artists on artists.ArtistId = albums.artistId INNER JOIN tracks on albums.albumId = tracks.AlbumId GROUP BY(albums.Title);
 ```
 
 10. Write the SQL to return the name of all of the artists in the 'Pop' Genre
