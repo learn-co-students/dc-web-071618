@@ -1,4 +1,4 @@
-class CreateDriver < ActiveRecord::Migration[5.2]
+class CreateDrivers < ActiveRecord::Migration[5.2]
   def change
     # create the Driver table
     # with columns name, make, model

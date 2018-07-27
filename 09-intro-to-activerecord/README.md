@@ -28,6 +28,12 @@ Run raw sql ourselves
 
 ## Rake
 
+C Make
+Ruby Make == Rake
+
+rake -T (show the tasks)
+rake db:migrate (run the migrations)
+
 ## Migrations
 
 Unit of change to our database table shape
@@ -43,3 +49,6 @@ Ride
 Passenger
 
 ## ActiveRecord::Base
+
+OH WOW
+Didn't have to define a thing!
