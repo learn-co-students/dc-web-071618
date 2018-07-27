@@ -22,46 +22,45 @@ As this is a review for Friday's code challenge, we will be working with an envi
 
 ```
 - how do we relate classes through other classes?
--
 ```
 
 ### Methods
 
-#### User
+## User
 
-## Class Methods
+#### Class Methods
 
 - `User.all`: should return **all** of the user instances
 - `User.find_by_name(name)`: given a string of a **full name**, returns the first users whose full name matches
 - `User.all_names`: should return an array of all of the user full names
 
-  ## Instance Methods
+#### Instance Methods
 
 - `User#full_name`: returns a user's first and last name together
 - `User#reviews`: return a unique list of a given user's reviews
 - `User#album_reviews(album)`: return a user's reviews of a given album
 - `User#add_review(album, review_content)`: add a new album review for a given user
 
-#### Album
+## Album
 
-## Class Methods
+#### Class Methods
 
 - `Album.all`: returns an array of all the albums
 - `Album.find_by_title(title)`: given a string of an album title, return the album hash that matches
 
-## Instance Methods
+#### Instance Methods
 
 - `Album#reviews`: returns an array of all of an album's reviews
 - `Album#reviewers`: returns a unique list of all users who have reviewed an album
 - `Album#longest_review`: returns the review with the longest 'content' property
 
-#### Reviews
+## Reviews
 
-## Class Methods
+#### Class Methods
 
 - `Review.all`: returns an array of all reviews
 
-## Instance Methods
+#### Instance Methods
 
 - `Review#user`: returns the user object for a given review. Once a review has been made, the user should not change.
 - `Review#album`: returns the album object for a given review. Again, no changing!
