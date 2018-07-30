@@ -5,3 +5,22 @@ desc "Start our app console"
 task :console do
   Pry.start
 end
+
+namespace :math do
+  desc "prints out one plus one"
+  task :one_plus_one do
+    puts "#{1 + 1}"
+  end
+
+  desc "prints out two times two"
+  task :two_times_two do
+    puts "#{2*2}"
+  end
+end
+
+namespace :db do
+  desc "removes the database"
+  task :delete do
+    File.delete('./db/development.sqlite')
+  end
+end

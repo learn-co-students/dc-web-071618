@@ -1,6 +1,13 @@
 class Driver < ActiveRecord::Base
+  # defines methods on Driver
   has_many :rides
+  has_many :passengers, through: :rides
+  has_many :mice, through: :passengers
 end
+
+# Driver#rides
+  # not just a getter!
+  # also lets us shovel in more data (it will persist to the database)
 
   # What we had to do before
   # attr_accessor :name
