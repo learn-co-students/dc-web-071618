@@ -5,12 +5,10 @@ https://www.youtube.com/watch?v=9ML8PrP3A8E
 Sites built with rails:
 https://skillcrush.com/2015/02/02/37-rails-sites/
 
-#What's new about Rails?
-
 ```
-- avoid repetition
+- avoids repetition
 - Routing
-- Lots of boilerplate configuration
+- Handles boilerplate configuration
 - Separation of concerns
-- Tough to debug
+- Easier to debug
 ```
