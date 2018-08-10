@@ -1,0 +1,8 @@
+<h1>Hogs</h1>
+<ul>
+<% @hogs.each do |hog| %>
+  <a href="/hogs/<%= hog.id %>">Name: <%= hog.name %></a>
+  <li>Weight: <%= hog.weight %> units of hog weight</li>
+  <li>Catchphrase:  <%= hog.catchphrase %></li>
+<% end %>
+</ul>
