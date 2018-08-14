@@ -1,6 +1,6 @@
 - explain "Flipped Classroom":  We expect you to see the material before lecture (although not master)
 
-- emphasize asking questions, feeling stupid, saying "I don't know"
+- emphasize asking questions, feeling stupid, saying "I don't know."
 
 - Don't code along unless instructed to
 
