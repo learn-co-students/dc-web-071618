@@ -1724,3 +1724,520 @@ Processing by RetailersController#show as HTML
 Completed 200 OK in 149ms (Views: 134.0ms | ActiveRecord: 1.9ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-08-16 10:30:04 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paul.nicholsen/.rvm/gems/ruby-2.3.7/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/paul.nicholsen/.rvm/gems/ruby-2.3.7/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/paul.nicholsen/.rvm/gems/ruby-2.3.7/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 17ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/snacks" for 127.0.0.1 at 2018-08-16 10:30:07 -0400
+Processing by SnacksController#index as HTML
+  Rendering snacks/index.html.erb within layouts/application
+  [1m[36mSnack Load (0.4ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks"[0m
+  ↳ app/views/snacks/index.html.erb:4
+  Rendered snacks/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 266ms (Views: 252.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/snacks/11" for 127.0.0.1 at 2018-08-16 10:36:13 -0400
+Processing by SnacksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSnack Load (0.3ms)[0m  [1m[34mSELECT  "snacks".* FROM "snacks" WHERE "snacks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/snacks_controller.rb:46
+  Rendering snacks/show.html.erb within layouts/application
+  Rendered snacks/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 139ms (Views: 99.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-16 10:36:18 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/paul.nicholsen/.rvm/gems/ruby-2.3.7/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/paul.nicholsen/.rvm/gems/ruby-2.3.7/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 19ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/retailers/new" for 127.0.0.1 at 2018-08-16 10:36:22 -0400
+Processing by RetailersController#new as HTML
+  Rendering retailers/new.html.erb within layouts/application
+  Rendered retailers/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 122ms (Views: 78.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/snacks/1" for 127.0.0.1 at 2018-08-16 10:36:31 -0400
+Processing by SnacksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSnack Load (0.6ms)[0m  [1m[34mSELECT  "snacks".* FROM "snacks" WHERE "snacks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/snacks_controller.rb:46
+Completed 404 Not Found in 7ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Snack with 'id'=1):
+  
+app/controllers/snacks_controller.rb:46:in `find_snack'
+Started GET "/snacks" for 127.0.0.1 at 2018-08-16 10:36:35 -0400
+Processing by SnacksController#index as HTML
+  Rendering snacks/index.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks"[0m
+  ↳ app/views/snacks/index.html.erb:4
+  Rendered snacks/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 41.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/snacks/11" for 127.0.0.1 at 2018-08-16 10:36:37 -0400
+Processing by SnacksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT  "snacks".* FROM "snacks" WHERE "snacks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/snacks_controller.rb:46
+  Rendering snacks/show.html.erb within layouts/application
+  Rendered snacks/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 71ms (Views: 53.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/snacks/11/edit" for 127.0.0.1 at 2018-08-16 10:36:45 -0400
+Processing by SnacksController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSnack Load (0.4ms)[0m  [1m[34mSELECT  "snacks".* FROM "snacks" WHERE "snacks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/snacks_controller.rb:46
+  Rendering snacks/edit.html.erb within layouts/application
+  Rendered snacks/_snack_form.html.erb (24.3ms)
+  Rendered snacks/edit.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 89ms (Views: 80.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/snacks/11" for 127.0.0.1 at 2018-08-16 10:38:00 -0400
+Processing by SnacksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSnack Load (0.3ms)[0m  [1m[34mSELECT  "snacks".* FROM "snacks" WHERE "snacks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/snacks_controller.rb:46
+  Rendering snacks/show.html.erb within layouts/application
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/snacks/show.html.erb:8
+  Rendered snacks/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 53ms (Views: 40.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/retailers/4" for 127.0.0.1 at 2018-08-16 10:38:03 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRetailer Load (0.3ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.3ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 4]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 68ms (Views: 58.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/retailers" for 127.0.0.1 at 2018-08-16 10:38:06 -0400
+Processing by RetailersController#index as HTML
+  Rendering retailers/index.html.erb within layouts/application
+  [1m[36mRetailer Load (0.4ms)[0m  [1m[34mSELECT "retailers".* FROM "retailers"[0m
+  ↳ app/views/retailers/index.html.erb:5
+  Rendered retailers/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 88ms (Views: 80.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:38:09 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.1ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.4ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 67ms (Views: 58.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/snacks/5" for 127.0.0.1 at 2018-08-16 10:42:01 -0400
+Processing by SnacksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSnack Load (0.1ms)[0m  [1m[34mSELECT  "snacks".* FROM "snacks" WHERE "snacks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/snacks_controller.rb:46
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Snack with 'id'=5):
+  
+app/controllers/snacks_controller.rb:46:in `find_snack'
+Started GET "/retailers/4" for 127.0.0.1 at 2018-08-16 10:42:06 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRetailer Load (0.5ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 4]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 46ms (Views: 36.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/snacks/11" for 127.0.0.1 at 2018-08-16 10:42:07 -0400
+Processing by SnacksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSnack Load (0.3ms)[0m  [1m[34mSELECT  "snacks".* FROM "snacks" WHERE "snacks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/snacks_controller.rb:46
+  Rendering snacks/show.html.erb within layouts/application
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/snacks/show.html.erb:8
+  Rendered snacks/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 73ms (Views: 62.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/4" for 127.0.0.1 at 2018-08-16 10:44:38 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 4]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 110ms (Views: 76.9ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/retailers/4" for 127.0.0.1 at 2018-08-16 10:44:43 -0400
+Processing by RetailersController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"brKdJSN6A5vZxB7himd4eQ5+J91APqsA7UCGIpvj/ig57zfZIKE2x3YQf2Pj3GJpqjLyvj7QhELPSPYHToL0hw==", "commit"=>"DESTROY THIS RETAILER", "id"=>"4"}
+  [1m[36mRetailer Load (0.3ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/retailers_controller.rb:23
+  [1m[36mRetailer Destroy (0.6ms)[0m  [1m[31mDELETE FROM "retailers" WHERE "retailers"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/retailers_controller.rb:23
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/retailers_controller.rb:23
+Redirected to http://localhost:3000/retailers
+Completed 302 Found in 9ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/retailers" for 127.0.0.1 at 2018-08-16 10:44:43 -0400
+Processing by RetailersController#index as HTML
+  Rendering retailers/index.html.erb within layouts/application
+  [1m[36mRetailer Load (0.4ms)[0m  [1m[34mSELECT "retailers".* FROM "retailers"[0m
+  ↳ app/views/retailers/index.html.erb:5
+  Rendered retailers/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 64ms (Views: 58.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:44:49 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 96ms (Views: 85.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:46:44 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.4ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.1ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 55ms (Views: 42.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:46:52 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.3ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.8ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 59ms (Views: 52.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:46:53 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.5ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 70ms (Views: 61.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:46:54 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.4ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (2.3ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 92ms (Views: 69.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:46:54 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.1ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 73ms (Views: 60.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:46:55 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 78ms (Views: 67.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:46:55 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (1.3ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 85ms (Views: 73.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/retailers/10" for 127.0.0.1 at 2018-08-16 10:48:26 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRetailer Load (0.3ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.1ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 10]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 44ms (Views: 33.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/retailers/10" for 127.0.0.1 at 2018-08-16 10:48:43 -0400
+Processing by RetailersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aPZbc3XPLHiioTPLQ4G7M6HfqKpMNXEoe68x9/uH+2s/q/GPdhQZJA11UkkqOqEjBZN9yTLbXmpZp0HSLubxxA==", "id"=>"10"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/retailers_controller.rb:23
+  [1m[36mRetailer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "retailers" WHERE "retailers"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/retailers_controller.rb:23
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/retailers_controller.rb:23
+Redirected to http://localhost:3000/retailers
+Completed 302 Found in 8ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/retailers" for 127.0.0.1 at 2018-08-16 10:48:43 -0400
+Processing by RetailersController#index as HTML
+  Rendering retailers/index.html.erb within layouts/application
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT "retailers".* FROM "retailers"[0m
+  ↳ app/views/retailers/index.html.erb:5
+  Rendered retailers/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 59ms (Views: 53.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/retailers/7" for 127.0.0.1 at 2018-08-16 10:48:47 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.1ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 7]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 77ms (Views: 66.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/retailers/7" for 127.0.0.1 at 2018-08-16 10:48:50 -0400
+Processing by RetailersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xMpignwAJjL6yMsxPPW2vczmnk0Ojak6iErtmw6PRXOTl8h+f9sTblUcqrNVTqytaKpLLnBjhniqQp2+2+5P3A==", "id"=>"7"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/retailers_controller.rb:23
+  [1m[36mRetailer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "retailers" WHERE "retailers"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/retailers_controller.rb:23
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/retailers_controller.rb:23
+Redirected to http://localhost:3000/retailers
+Completed 302 Found in 10ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/retailers" for 127.0.0.1 at 2018-08-16 10:48:50 -0400
+Processing by RetailersController#index as HTML
+  Rendering retailers/index.html.erb within layouts/application
+  [1m[36mRetailer Load (0.3ms)[0m  [1m[34mSELECT "retailers".* FROM "retailers"[0m
+  ↳ app/views/retailers/index.html.erb:5
+  Rendered retailers/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 67ms (Views: 55.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:50:52 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 4, expected 0..3)):
+    16: <% end %>
+    17: 
+    18: <h4>Delete by link</h4>
+    19: <%= link_to "Delete this retailer by a link",
+    20:     retailer_path(@retailer),
+    21:     {method: :delete}, {class: "looks_like_a_button"}%>
+  
+app/views/retailers/show.html.erb:19:in `_app_views_retailers_show_html_erb___2460358017110360469_70255069428260'
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:51:57 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 4, expected 0..3)):
+    16: <% end %>
+    17: 
+    18: <h4>Delete by link</h4>
+    19: <%= link_to "Delete this retailer by a link",
+    20:     retailer_path(@retailer),
+    21:     {method: :delete}, class: "looks_like_a_button" %>
+  
+app/views/retailers/show.html.erb:19:in `_app_views_retailers_show_html_erb___2460358017110360469_70255066104760'
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:52:36 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.1ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 4, expected 0..3)):
+    16: <% end %>
+    17: 
+    18: <h4>Delete by link</h4>
+    19: <%= link_to "Delete this retailer by a link",
+    20:     retailer_path(@retailer),
+    21:     {method: :delete}, html_options= {class: "looks_like_a_button"} %>
+  
+app/views/retailers/show.html.erb:19:in `_app_views_retailers_show_html_erb___2460358017110360469_70255016461280'
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:52:58 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.1ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.3ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 80ms (Views: 74.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:54:30 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.1ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 54ms (Views: 48.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:54:34 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.4ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 50ms (Views: 40.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:54:34 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.3ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 54ms (Views: 45.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:54:35 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/retailers/5" for 127.0.0.1 at 2018-08-16 10:55:21 -0400
+Processing by RetailersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRetailer Load (0.2ms)[0m  [1m[34mSELECT  "retailers".* FROM "retailers" WHERE "retailers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/retailers_controller.rb:8
+  Rendering retailers/show.html.erb within layouts/application
+  [1m[36mSnack Load (0.2ms)[0m  [1m[34mSELECT "snacks".* FROM "snacks" WHERE "snacks"."retailer_id" = ?[0m  [["retailer_id", 5]]
+  ↳ app/views/retailers/show.html.erb:6
+  Rendered retailers/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 122ms (Views: 113.7ms | ActiveRecord: 0.4ms)
+
+

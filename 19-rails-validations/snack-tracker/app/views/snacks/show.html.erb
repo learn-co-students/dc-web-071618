@@ -5,8 +5,8 @@
 <h3>Deliciousness: <%= @snack.deliciousness %></h3>
 <h4>Calories: <%= @snack.calories %></h4>
 
-<!-- 
-<a href="<%= snacks_path %>">Snacks Index Page</a> -->
+<h4><%= link_to @snack.retailer.name, retailer_path(@snack.retailer) %></h4>
+
 </div>
 <%= link_to "Edit Snack", edit_snack_path(@snack) %>
 
