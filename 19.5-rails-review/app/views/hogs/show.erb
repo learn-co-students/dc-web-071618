@@ -1,0 +1,5 @@
+<h2><%= @hog.name %></h2>
+<p><%= @hog.weight %> units of hog weight</p>
+<p>Owned by: <%= @hog.farmer.name %></p>
+<p>From: <%= @hog.farmer.location%></p>
+<%= link_to "(X)", hog_path(@hog), method: :delete, data: {confirm: "make me bacon?"} %>
