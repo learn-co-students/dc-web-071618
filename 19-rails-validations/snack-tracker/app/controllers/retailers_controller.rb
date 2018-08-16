@@ -14,8 +14,12 @@ class RetailersController < ApplicationController
   end
 
   def create
-    retailer = Retailer.create(accepted_retailer_form_fields)
-    redirect_to retailer_path(retailer)
+    @retailer = Retailer.create(accepted_retailer_form_fields)
+    if @retailer.errors
+      render :new
+    else
+      redirect_to retailer_path(@retailer)
+    end
   end
 
   def destroy

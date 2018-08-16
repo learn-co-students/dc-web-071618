@@ -16,11 +16,15 @@ class SnacksController < ApplicationController
   end
 
   def create
+    # byebug
     @snack = Snack.create(accepted_params)
-    # @snack = Snack.create(name: params[:snack][:name],
-    #                       deliciousness: params[:snack][:deliciousness],
-    #                       calories: params[:snack][:calories])
-    redirect_to snack_path(@snack)
+    if @snack.errors
+
+  
+      render :new
+    else
+      redirect_to snack_path(@snack)
+    end
   end
 
   def edit
