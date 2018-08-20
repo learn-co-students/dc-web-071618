@@ -1,0 +1,9 @@
+<%= form_for @hog do |hog| %>
+  <%= hog.label :name %>
+  <%= hog.text_field :name %>
+  <%= hog.label :weight %>
+  <%= hog.number_field :weight %>
+  <%= hog.label :farmer%>
+  <%= collection_select(:hog, :farmer_id, Farmer.all, :id, :name, {:prompt => true}) %>
+  <%= hog.submit %>
+<% end %>
