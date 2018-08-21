@@ -1,0 +1,9 @@
+<h1>Retailers#index</h1>
+<p>Find me in app/views/retailers/index.html.erb</p>
+
+<h2>Do cookies exist here?  I like <%= cookies["favorite"] %> and <%= session["secret-favorite"] %>
+<ul>
+    <% @retailers.each do |r| %>
+        <li><%= link_to r.name, retailer_path(r) %></li>
+    <% end %>
+</ul>

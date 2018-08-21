@@ -1,0 +1,19 @@
+<div class="snack-container">
+    
+<h1><%= @snack.name %></h1>
+
+<h3>Deliciousness: <%= @snack.deliciousness %></h3>
+<h4>Calories: <%= @snack.calories %></h4>
+
+<% if @snack.retailer %>
+    <h4><%= link_to @snack.retailer.name, retailer_path(@snack.retailer) %></h4>
+<% end %> 
+
+</div>
+<%= link_to "Edit Snack", edit_snack_path(@snack) %>
+
+<%= form_tag @snack, :class => 'delete-button', method: "DELETE" do %>
+    <%= submit_tag "Delete" %>
+<% end %>
+
+<%= link_to "Snacks Index Page", snacks_path %>
