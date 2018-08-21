@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
 
     # memoization
     def current_username
-        if @user
-            @user.username
+        if @current_user
+            @current_user.username
         else
-            @user = User.find_by(id: session[:user_id])
+            @current_user = User.find_by(id: session[:user_id])
+            @current_user.username
         end
     end
 end
