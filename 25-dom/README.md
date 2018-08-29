@@ -34,5 +34,5 @@
 - `innerHTML`
 - `removeChild()``
 
-### Customer HTML attributes (metadata)
+### Custom HTML attributes (metadata)
 - [HTMLElement.dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
