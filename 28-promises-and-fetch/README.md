@@ -54,6 +54,27 @@ PATCH  /pokemon/1
 DELETE /pokemon/1
 ```
 
+POST - create a brand new resource
+PATCH - update an existing resource
+PUT - update an existing resource
+
+With a POST request, you need the body to be a string (JSON.stringify({}))
+```
+fetch(url, {options object})
+.then(response => response.json())
+.then(jsonData => {
+  //do something with the jsonData
+})
+```
+
+### Weekend Priority
+- All labs up to this point in the order when they were deployed/taught (JS, DOM, Fetch)
+  - Including work under the Assignments Tab
+  - You can skip Gravatar and Task Lister Project
+- Object Oriented JS Labs
+
+- Toy Tale is also deployed(<--Refer to today's lecture videos and notes)
+- Come back to Gravatar and Task Lister Project
 
 
 
