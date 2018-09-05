@@ -14,12 +14,6 @@ addBtn.addEventListener("click", () => {
     toyForm.style.display = "none";
   }
 });
-//update likes on a toy
-//when a toy's like button is clicked
-//send a patch request to that toy in DB, increment 'likes' by 1
-//reflect new likes value on the DOM
-
-function addLikeBtnListeners() {}
 
 //add event listener to form, listen for submit
 //make post request to /toys
@@ -41,7 +35,6 @@ function postNewToy(event) {
     image: event.target[1].value,
     likes: 0
   };
-  console.log("event from inside postNewToy", event);
   fetch("http://localhost:3000/toys", {
     method: "POST",
     headers: {
@@ -76,7 +69,6 @@ function addToysToDom(toy) {
   likeBtn.className = "like-me";
   likeBtn.id = `toy-${toy.id}`;
   likeBtn.addEventListener("click", () => {
-    // debugger;
     updateLikes(likeBtn.id);
   });
 
@@ -87,15 +79,11 @@ function addToysToDom(toy) {
   collection.append(div);
 }
 
-// function addLikeListener() {
-//   let btnArr = Array.from(document.querySelectorAll(".like-me"));
-//   btnArr.forEach(btn =>
-//     btn.addEventListener("click", e => {
-//       console.log("clicked", e.target.innerText);
-//     })
-//   );
-// }
-//
+//update likes on a toy
+//when a toy's like button is clicked
+//send a patch request to that toy in DB, increment 'likes' by 1
+//reflect new likes value on the DOM
+
 function updateLikes(toyId) {
   let toyIdNumber = toyId.split("-")[1];
   let likeCount = document.querySelector(`#likes-${toyIdNumber}`).innerText;
@@ -113,8 +101,6 @@ function updateLikes(toyId) {
 function updateLikesOnDom(toy) {
   const likeCount = document.querySelector(`#likes-${toy.id}`);
   likeCount.innerText = parseInt(likeCount.innerText) + 1;
-
-  console.log(likeCount);
 }
 
 function init() {
