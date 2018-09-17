@@ -1,0 +1,17 @@
+{
+  "name": "34-intro-to-react",
+  "version": "1.0.0",
+  "description": "- Discuss Vanilla JS - Brief History/Context - Project Set Up - Briefly on Virtual DOM - Navbar Student Exercise - JSX",
+  "main": "src/index.js",
+  "dependencies": {
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "semantic-ui-css": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

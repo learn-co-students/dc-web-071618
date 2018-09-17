@@ -23,7 +23,7 @@ How to organize code
 
 ## Project Set Up
 
-First, npm install --save react react-dom semantic-ui-css.
+First, `npm install --save react react-dom semantic-ui-css`
 
 npm differs from installing gem.
 node_modules folder, we're just linking to js/css files in our index.html. I've had some issues if I do not use these specific links:
