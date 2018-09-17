@@ -126,6 +126,8 @@ ReactDOM.render(
 
 ## Create React App
 
+`eject` - unhides all of the secrets
+
 ## Imports and JSX
 
 ## Components and Props
