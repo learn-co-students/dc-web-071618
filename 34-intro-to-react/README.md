@@ -122,4 +122,12 @@ ReactDOM.render(
 );
 ```
 
+# React Components and Props
+
+## Create React App
+
 ## Imports and JSX
+
+## Components and Props
+
+## State
