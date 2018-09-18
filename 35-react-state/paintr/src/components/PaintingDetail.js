@@ -3,16 +3,12 @@ import React from "react";
 class PaintingDetail extends React.Component {
   constructor() {
     super();
-    this.state = {
-      count: 0,
-      value: ""
-    };
   }
 
   render() {
     return (
       <div>
-        <img src={this.props.painting.image} />
+        <img alt={this.props.painting.title} src={this.props.painting.image} />
         <h3>{this.props.painting.title}</h3>
         <h4>
           {this.props.painting.artist.name}{" "}
@@ -20,18 +16,19 @@ class PaintingDetail extends React.Component {
             this.props.painting.artist.deathday
           }
         </h4>
-        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-          Votes - Currently: {this.state.count}
+        <button onClick={this.props.edit} className="ui button">
+          Edit
         </button>
-        <input
-          value={this.state.value}
-          onChange={e =>
-            this.setState({
-              value: e.target.value,
-              count: this.state.count * 2
-            })
-          }
-        />
+        <button
+          className="ui button"
+          onClick={() => {
+            // tempting but wrong!!
+            // this.props.painting.votes += 1;
+            this.props.vote(this.props.painting.id);
+          }}
+        >
+          Vote! {this.props.painting.votes}
+        </button>
       </div>
     );
   }

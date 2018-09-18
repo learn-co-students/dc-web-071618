@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import PaintingDetail from "./components/PaintingDetail";
 import PaintingsContainer from "./components/PaintingsContainer";
 
 class App extends Component {
