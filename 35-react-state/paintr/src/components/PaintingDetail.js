@@ -12,6 +12,7 @@ class PaintingDetail extends React.Component {
   render() {
     return (
       <div>
+        <img src={this.props.painting.image} />
         <h3>{this.props.painting.title}</h3>
         <h4>
           {this.props.painting.artist.name}{" "}
