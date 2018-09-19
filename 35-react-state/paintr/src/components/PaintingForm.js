@@ -11,6 +11,17 @@ class PaintingForm extends React.Component {
     };
   }
 
+  onSave = e => {
+    e.preventDefault();
+    let info = {
+      title: this.state.title,
+      name: this.state.name,
+      birthday: this.state.birthday,
+      deathday: this.state.deathday
+    };
+    this.props.updatePaintingInfo(this.props.painting.id, info);
+  };
+
   render() {
     return (
       <div className="ui centered card">
@@ -20,7 +31,7 @@ class PaintingForm extends React.Component {
             src={this.props.painting.image}
           />
         </div>
-        <form className="ui form" onSubmit={e => e.preventDefault()}>
+        <form className="ui form" onSubmit={this.onSave}>
           <input
             className="ui field"
             name="title"
@@ -47,7 +58,7 @@ class PaintingForm extends React.Component {
           />
           <button
             className="ui button"
-            type="submit"
+            type="button"
             onClick={this.props.cancel}
           >
             Cancel

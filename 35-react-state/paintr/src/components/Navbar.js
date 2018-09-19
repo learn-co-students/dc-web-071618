@@ -1,5 +1,10 @@
 import React from "react";
 
+// color
+// title
+// icon
+// description
+
 const Navbar = props => (
   <div className={`ui inverted ${props.color} menu`}>
     <a className="item">

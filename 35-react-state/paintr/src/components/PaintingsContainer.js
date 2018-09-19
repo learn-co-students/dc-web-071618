@@ -15,7 +15,11 @@ class PaintingsContainer extends React.Component {
   }
 
   selectPainting = id => {
-    this.setState({ selectedPaintingId: id });
+    if (this.state.editing) {
+      alert("you need to save before switching paintings");
+    } else {
+      this.setState({ selectedPaintingId: id });
+    }
   };
 
   voteForPainting = id => {
@@ -36,6 +40,32 @@ class PaintingsContainer extends React.Component {
     this.setState({ paintings: updatePaintings });
   };
 
+  updatePaintingInfo = (paintingId, info) => {
+    console.log("updatePaintingInfo", paintingId, info);
+
+    let newPaintingsArray = this.state.paintings.map(painting => {
+      if (painting.id === paintingId) {
+        // update the painting
+        // naive way
+        // wrong! painting.title = info.title
+        // console.log(painting);
+        return {
+          ...painting,
+          title: info.title,
+          artist: {
+            name: info.name,
+            birthday: info.birthday,
+            deathday: info.deathday
+          }
+        };
+      } else {
+        return painting;
+      }
+    });
+
+    this.setState({ paintings: newPaintingsArray, editing: false });
+  };
+
   edit = () => {
     this.setState({ editing: true });
   };
@@ -49,7 +79,11 @@ class PaintingsContainer extends React.Component {
       painting => painting.id === this.state.selectedPaintingId
     );
     let paintingToShow = this.state.editing ? (
-      <PaintingForm cancel={this.cancel} painting={selectedPainting} />
+      <PaintingForm
+        cancel={this.cancel}
+        painting={selectedPainting}
+        updatePaintingInfo={this.updatePaintingInfo}
+      />
     ) : (
       <PaintingDetail
         edit={this.edit}
