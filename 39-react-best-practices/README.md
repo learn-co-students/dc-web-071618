@@ -11,8 +11,10 @@
 ### Architecture - What makes a good component?
 - Container vs. Presentational Components
 - Many small components is better than a few big components
+
 - logic in `render`
 - If you have a method that returns JSX, consider making it a component
+
 - Reduce State
 - Reduce options
 - Avoiding `style=` and `className=` with components
@@ -46,8 +48,30 @@ vs:
   - Use the same key/value name in your objects
 - constructor vs. ES7 instance variables (`state = { count: 0 }`)
 - defaultProps and function default values
+
+```
+const Button = (props = {color: "blue"}) => {
+  return <button color={props.color}>{props.children}</button>
+}
+
+```
+
+
 - Conditional rendering: ternaries vs. methods vs. short circuiting vs. IIFEs
+```
+render() {
+  return <div>
+   { !!condition && <Button /> }
+   </div>
+}
+```
+
 - classnames [helper](https://github.com/JedWatson/classnames)
+
+```
+<div className={classnames('item', { active: props.active })}
+```
+
 - separate your imports
 - colocate your files
 - avoid unneeded callbacks, e.g.:
@@ -61,7 +85,7 @@ flights.filter(isActive);
 
 ### Gotchas
 - capitalize ComponentNames
-- `displayName`
+- `this.displayName`
 - JSX Comments `{ /* comment  */ }`
 - setting state from props
 - setState is asynchronous

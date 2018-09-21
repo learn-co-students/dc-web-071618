@@ -1,31 +1,47 @@
 import React from "react";
 
-class PaintingDetail extends React.Component {
+class PaintingDetail extends React.PureComponent {
   render() {
+    // this.props // { painting: {}, vote: () => , edit: () => }
+    // destructuring assignment
+    let { painting, vote, edit } = this.props;
+    let {
+      title,
+      image,
+      votes,
+      id,
+      artist: { name, birthday, deathday }
+    } = painting;
+    // let { name, birthday, deathday } = artist;
     return (
       <div>
-        <img alt={this.props.painting.title} src={this.props.painting.image} />
-        <h3>{this.props.painting.title}</h3>
+        <img alt={title} src={image} />
+        <h3>{title}</h3>
         <h4>
-          {this.props.painting.artist.name}{" "}
-          {this.props.painting.artist.birthday}-{
-            this.props.painting.artist.deathday
-          }
+          {name} {birthday}-{deathday}
         </h4>
-        <button onClick={this.props.edit} className="ui button">
+        <button onClick={edit} className="ui button">
           Edit
         </button>
         <button
           className="ui button"
           onClick={() => {
-            this.props.vote(this.props.painting.id);
+            vote(id);
           }}
         >
-          Vote! {this.props.painting.votes}
+          Vote! {votes}
         </button>
       </div>
     );
   }
 }
+
+PaintingDetail.defaultProps = {
+  edit: () => {},
+  vote: () => {},
+  painting: {
+    artist: {}
+  }
+};
 
 export default PaintingDetail;

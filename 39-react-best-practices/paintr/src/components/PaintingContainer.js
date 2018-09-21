@@ -1,17 +1,15 @@
 import React from "react";
+
 import PaintingDetail from "./PaintingDetail";
 import PaintingForm from "./PaintingForm";
 import paintingsData from "../paintings.json";
 
 class Paintings extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      selectedPaintingId: null,
-      paintings: paintingsData.paintings,
-      editing: false
-    };
-  }
+  state = {
+    selectedPaintingId: null,
+    paintings: paintingsData.paintings,
+    editing: false
+  };
 
   selectPainting = id => {
     if (this.state.editing) {
@@ -39,7 +37,7 @@ class Paintings extends React.Component {
     this.setState({ paintings: updatePaintings });
   };
 
-  updatePaintingInfo = (paintingId, info) => {
+  updatePaintingInfo = (paintingId, { title, name, birthday, deathday }) => {
     let newPaintingsArray = this.state.paintings.map(painting => {
       if (painting.id === paintingId) {
         // update the painting
@@ -48,11 +46,11 @@ class Paintings extends React.Component {
         // console.log(painting);
         return {
           ...painting,
-          title: info.title,
+          title,
           artist: {
-            name: info.name,
-            birthday: info.birthday,
-            deathday: info.deathday
+            name,
+            birthday,
+            deathday
           }
         };
       } else {
@@ -71,7 +69,7 @@ class Paintings extends React.Component {
     this.setState({ editing: false });
   };
 
-  render() {
+  getPaintingComponent() {
     let selectedPainting = this.state.paintings.find(
       painting => painting.id === this.state.selectedPaintingId
     );
@@ -82,15 +80,15 @@ class Paintings extends React.Component {
         updatePaintingInfo={this.updatePaintingInfo}
       />
     ) : (
-      <PaintingDetail
-        edit={this.edit}
-        vote={this.voteForPainting}
-        painting={selectedPainting}
-      />
+      <PaintingDetail vote={this.voteForPainting} painting={selectedPainting} />
     );
+    return paintingToShow;
+  }
+
+  render() {
     return (
       <div>
-        {this.state.selectedPaintingId ? paintingToShow : null}
+        {this.state.selectedPaintingId ? this.getPaintingComponent() : null}
         {this.state.paintings.map(painting => (
           <div
             className="item"
