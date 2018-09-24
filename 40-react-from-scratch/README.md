@@ -3,18 +3,92 @@
 Let's build out a youtube frontend with React!
 
 1. Component Hierarchy
+
+App
+  Searchbar
+    SearchInput
+    SearchButton
+? VideoContainer
+    CurrentVideo
+      VideoPlayer
+        - how does this work?
+        - display, controls
+        (for today, we'll embed with an iframe)
+      VideoDetails
+      (Comments)
+    VideoList
+      VideoCard
+? SearchResults
+    VideoList
+      VideoCard
+
+
 2. Static Version
+
+phew
+
 3. State
+
+search input
+selected video
+search results
+recommended videos
+
+
+User actions => app state
+  - type into the search bar
+    - update the search input
+  - click the search button
+    - update the search results
+    - set selected video to null
+  - click a video in the list
+    - take away the search results
+    - sets the selected video
+
+state => what gets rendered
+  - what shows the current video?
+    - if there is a selected video, show the VideoContainer
+  - what shows the search results?
+    - if there is no selected video, show the SearchResults
+
 4. Whitherto State?
+
+find the parent in common of components that need to access / change some piece of state
+
+search input - App
+selected video - App
+  recommended videos - Video Container
+search results - App
+  
+App
+  Searchbar
+    SearchInput - search value (search results)
+    SearchButton - search results, selected video
+  VideoContainer
+    CurrentVideo - video info
+      VideoPlayer - video info
+        - how does this work?
+        - display, controls
+        (for today, we'll embed with an iframe)
+      VideoDetails - video info
+      (Comments)
+    VideoList - recommended
+      VideoCard - video info, selected video
+ SearchResults
+    VideoList - []video info - search results
+      VideoCard - video info, selected video
+
 5. Build
 
 Features:
+- Start with blank search bar, with no videos
 - Search as we type in the searchbar
   - But not every character
-- Select Result => Video Detail
+- See a list of search results
 - All results => Video List
+- Select Result => Video Detail
+- See a list of recommended videos next to it
 - When we click a video in the list, select that video (show it in the detail view)
-- Dropdown menu
 
 ## Sample Api Response
 
