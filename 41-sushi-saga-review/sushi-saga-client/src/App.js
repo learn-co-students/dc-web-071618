@@ -39,7 +39,7 @@ class App extends Component {
   };
 
   eat = sushi => {
-    //set state to reflect when the sushi has beebn clicked
+    //set state to reflect when the sushi has been clicked
     const newBill = this.state.bill + sushi.price;
     if (this.state.balance > sushi.price && !this.state.eaten.includes(sushi)) {
       this.setState({
