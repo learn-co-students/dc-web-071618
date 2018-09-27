@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class PaintingDetail extends React.Component {
   render() {
@@ -12,9 +13,9 @@ class PaintingDetail extends React.Component {
             this.props.painting.artist.deathday
           }
         </h4>
-        <button onClick={this.props.edit} className="ui button">
-          Edit
-        </button>
+        <Link to={`/paintings/${this.props.painting.id}/edit`}>
+          <button className="ui button">Edit</button>
+        </Link>
         <button
           className="ui button"
           onClick={() => {

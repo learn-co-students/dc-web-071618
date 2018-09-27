@@ -1,4 +1,6 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+
 import PaintingsList from "./PaintingsList";
 import PaintingDetail from "./PaintingDetail";
 import PaintingForm from "./PaintingForm";
@@ -8,19 +10,19 @@ class PaintingsContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedPaintingId: null,
-      paintings: paintingsData.paintings,
-      editing: false
+      // selectedPaintingId: null,
+      paintings: paintingsData.paintings
+      // editing: false
     };
   }
 
-  selectPainting = id => {
-    if (this.state.editing) {
-      alert("you need to save before switching paintings");
-    } else {
-      this.setState({ selectedPaintingId: id });
-    }
-  };
+  // selectPainting = id => {
+  //   if (this.state.editing) {
+  //     alert("you need to save before switching paintings");
+  //   } else {
+  //     this.setState({ selectedPaintingId: id });
+  //   }
+  // };
 
   voteForPainting = id => {
     // make an exact copy
@@ -64,38 +66,64 @@ class PaintingsContainer extends React.Component {
     this.setState({ paintings: newPaintingsArray, editing: false });
   };
 
-  edit = () => {
-    this.setState({ editing: true });
-  };
-
-  cancel = () => {
-    this.setState({ editing: false });
-  };
+  // edit = () => {
+  //   this.setState({ editing: true });
+  // };
+  //
+  // cancel = () => {
+  //   this.setState({ editing: false });
+  // };
 
   render() {
-    let selectedPainting = this.state.paintings.find(
-      painting => painting.id === this.state.selectedPaintingId
-    );
-    let paintingToShow = this.state.editing ? (
-      <PaintingForm
-        cancel={this.cancel}
-        painting={selectedPainting}
-        updatePaintingInfo={this.updatePaintingInfo}
-      />
-    ) : (
-      <PaintingDetail
-        edit={this.edit}
-        vote={this.voteForPainting}
-        painting={selectedPainting}
-      />
-    );
+    // let paintingToShow = this.state.editing ? (
+    //   <PaintingForm
+    //     cancel={this.cancel}
+    //     painting={selectedPainting}
+    //     updatePaintingInfo={this.updatePaintingInfo}
+    //   />
+    // ) : (
+    //   <PaintingDetail
+    //     edit={this.edit}
+    //     vote={this.voteForPainting}
+    //     painting={selectedPainting}
+    //   />
+    // );
     return (
       <div>
-        {this.state.selectedPaintingId ? paintingToShow : null}
-        <PaintingsList
-          selectPainting={this.selectPainting}
-          paintings={this.state.paintings}
-        />
+        <Switch>
+          <Route
+            path="/paintings/:paintingId/edit"
+            render={data => {
+              let selectedPainting = this.state.paintings.find(
+                painting => painting.id === data.match.params.paintingId
+              );
+              return (
+                <PaintingForm
+                  painting={selectedPainting}
+                  updatePaintingInfo={this.updatePaintingInfo}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/paintings/:paintingId"
+            render={data => {
+              let selectedPainting = this.state.paintings.find(
+                painting => painting.id === data.match.params.paintingId
+              );
+              return <PaintingDetail painting={selectedPainting} />;
+            }}
+          />
+          <Route
+            path="/"
+            render={() => (
+              <PaintingsList
+                selectPainting={this.selectPainting}
+                paintings={this.state.paintings}
+              />
+            )}
+          />
+        </Switch>
       </div>
     );
   }

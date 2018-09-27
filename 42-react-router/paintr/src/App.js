@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+
 import "./App.css";
 import Navbar from "./components/Navbar";
 import PaintingsContainer from "./components/PaintingsContainer";
+import AboutPage from "./components/AboutPage";
 
 const mockProps = {
   color: "teal",
@@ -10,6 +13,7 @@ const mockProps = {
   description: "Making ur dreams come true"
 };
 
+// <Route path="/paintings/:paintingId" compon
 class App extends Component {
   render() {
     return (
@@ -20,7 +24,10 @@ class App extends Component {
           icon="paint brush"
           description="All ur paintings"
         />
-        <PaintingsContainer />
+        <Switch>
+          <Route exact path="/about" component={AboutPage} />
+          <Route path="/" component={PaintingsContainer} />
+        </Switch>
       </div>
     );
   }

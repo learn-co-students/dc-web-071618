@@ -27,6 +27,15 @@ Now that the React stack is handling routing, that means none of our routes requ
 - We're loading all of our frontend at once, so it might add to the initial load time
 - We have to design all of our routes to be coupled with our component structure (which can be a good thing long-term)
 
+
+## Rails Routing
+
+MVC
+config/routes.rb
+requests routed to controllers dependent on the config
+
+separate requests for different pages
+
 ## Browser APIs
 
 How does client-side routing _work_?
@@ -71,6 +80,28 @@ Variant `NavLink` also takes a prop `activeClassName` and renders differently wh
 
 ### Switch
 Renders only one Route. Picks the first that matches, (doesn't look at the others) - like an if/ else if/ else if.
+
+```
+// switch
+if (path matches) {
+  render component
+} else if (path matches){
+  render other component
+}
+
+// using multiple exact paths, but no switch
+if (matches){
+  render component
+}
+
+if (matches) {
+  render component
+}
+
+```
+
+
+
 
 ### Redirect
 Forces a redirect to a particular route. We won't use this here.

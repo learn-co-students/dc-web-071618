@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class PaintingForm extends React.Component {
   constructor(props) {
@@ -56,13 +57,11 @@ class PaintingForm extends React.Component {
             value={this.state.deathday}
             onChange={e => this.setState({ deathday: e.target.value })}
           />
-          <button
-            className="ui button"
-            type="button"
-            onClick={this.props.cancel}
-          >
-            Cancel
-          </button>
+          <Link to={`/paintings/${this.props.painting.id}`}>
+            <button className="ui button" type="button">
+              Cancel
+            </button>
+          </Link>
           <button className="ui button" type="submit">
             Save
           </button>
