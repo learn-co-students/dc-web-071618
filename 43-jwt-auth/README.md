@@ -75,7 +75,13 @@ session[:user_id] # read from the cookie
 - Plays the same role - authenticate who we are
 
 - How do we generate the token?
+  - encode method
+  - login route
+  - uses JWT.encode and a secret
 - How do we send it to the client?
+ - send fetch from React
+ - send back json response
+
 - How do we store it on the client?
 - How do we send it back and read it?
 

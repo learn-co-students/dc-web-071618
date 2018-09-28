@@ -12,7 +12,24 @@ class LoginForm extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleLoginSubmit = () => {};
+  handleLoginSubmit = () => {
+    console.log(this.state);
+    // send the fetch!
+    const url = "http://localhost:3000/api/v1/login";
+    const params = {
+      username: this.state.username,
+      password: this.state.password
+    };
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(params),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(r => r.json())
+      .then(console.log);
+  };
 
   render() {
     return (
