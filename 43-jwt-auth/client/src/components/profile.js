@@ -1,6 +1,10 @@
 import React from "react";
 import { Card, Image } from "semantic-ui-react";
 
+// App - userinfo
+//   Login
+//   Profile
+
 /* props: {
   avatar: 'someURL',
   username: 'chandler Bing',

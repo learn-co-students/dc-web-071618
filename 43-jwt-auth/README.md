@@ -81,10 +81,13 @@ session[:user_id] # read from the cookie
 - How do we send it to the client?
  - send fetch from React
  - send back json response
-
 - How do we store it on the client?
+  - localStorage
 - How do we send it back and read it?
+  - check if there's a token on page load
+  - get the user info if so
 
+  
 ## Token
 - identifies user
 - _Cryptographically Secure_
@@ -115,7 +118,7 @@ session[:user_id] # read from the cookie
       - clear it - on sign out `clear`
       - we would like to be able to expire tokens after a set amount of time
       - 'stay signed in'
-      - XSS
+      - XSS - Cross Site Scripting
 
 ## User Experience
 

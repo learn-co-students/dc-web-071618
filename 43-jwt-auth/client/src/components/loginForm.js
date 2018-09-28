@@ -28,7 +28,12 @@ class LoginForm extends React.Component {
       }
     })
       .then(r => r.json())
-      .then(console.log);
+      .then(response => {
+        localStorage.setItem("token", response.token);
+        // console.log(response);
+        this.props.updateUserInfo(response.user_info);
+        this.props.history.push("/profile");
+      });
   };
 
   render() {
