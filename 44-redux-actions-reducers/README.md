@@ -147,3 +147,12 @@ componentDidMount() {
 ## Challenge
 
 Add buttons, actions, and cases to your reducer so that we can increment and decrement by `+3` and `-5`
+
+## Remaining issues
+
+- subscribe / forceUpdate hack
+- all in one file (components, redux - should have their own files)
+- if we had more keys in our state, how would we do that?
+- need a reference to `store` in order to get state, dispatch actions
+- make typos in our actions
+- boilerplate
