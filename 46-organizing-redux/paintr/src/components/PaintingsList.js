@@ -2,8 +2,8 @@ import React from "react";
 import PaintingListItem from "./PaintingListItem";
 
 const PaintingsList = props => (
-  <div className="ui narrow container">
-    <div className="ui relaxed celled list">
+  <div className="ui container">
+    <div className="ui celled selection list">
       {props.paintings.map(painting => (
         <PaintingListItem
           selectPainting={props.selectPainting}
