@@ -5,17 +5,8 @@ import PaintingsList from "./PaintingsList";
 import PaintingDetail from "./PaintingDetail";
 import PaintingForm from "./PaintingForm";
 import Searchbar from "./Searchbar";
-import paintingsData from "../paintings.json";
 
 class PaintingsContainer extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      paintings: paintingsData.paintings,
-      searchText: ""
-    };
-  }
-
   voteForPainting = id => {
     let updatePaintings = this.state.paintings.map(painting => {
       if (painting.id === id) {
@@ -51,20 +42,6 @@ class PaintingsContainer extends React.Component {
     this.setState({ paintings: newPaintingsArray, editing: false });
   };
 
-  changeSearch = searchText => {
-    this.setState({ searchText });
-  };
-
-  filteredPaintings = () => {
-    return this.state.paintings.filter(
-      p =>
-        p.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
-        p.artist.name
-          .toLowerCase()
-          .includes(this.state.searchText.toLowerCase())
-    );
-  };
-
   render() {
     return (
       <div>
@@ -72,12 +49,9 @@ class PaintingsContainer extends React.Component {
           <Route
             path="/paintings/:paintingId/edit"
             render={data => {
-              let selectedPainting = this.state.paintings.find(
-                painting => painting.id === data.match.params.paintingId
-              );
               return (
                 <PaintingForm
-                  painting={selectedPainting}
+                  paintingId={data.match.params.paintingId}
                   updatePaintingInfo={this.updatePaintingInfo}
                 />
               );
@@ -86,24 +60,17 @@ class PaintingsContainer extends React.Component {
           <Route
             path="/paintings/:paintingId"
             render={data => {
-              let selectedPainting = this.state.paintings.find(
-                painting => painting.id === data.match.params.paintingId
+              return (
+                <PaintingDetail paintingId={data.match.params.paintingId} />
               );
-              return <PaintingDetail painting={selectedPainting} />;
             }}
           />
           <Route
             path="/"
             render={() => (
               <div className="ui narrow container segment">
-                <Searchbar
-                  value={this.state.searchText}
-                  onChange={this.changeSearch}
-                />
-                <PaintingsList
-                  selectPainting={this.selectPainting}
-                  paintings={this.filteredPaintings()}
-                />
+                <Searchbar />
+                <PaintingsList />
               </div>
             )}
           />

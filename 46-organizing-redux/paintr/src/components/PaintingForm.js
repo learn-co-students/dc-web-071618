@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class PaintingForm extends React.Component {
   constructor(props) {
@@ -71,4 +72,10 @@ class PaintingForm extends React.Component {
   }
 }
 
-export default PaintingForm;
+const mapStateToProps = (state, propsFromParent) => {
+  return {
+    painting: state.paintings.find(p => p.id === propsFromParent.paintingId)
+  };
+};
+
+export default connect(mapStateToProps)(PaintingForm);

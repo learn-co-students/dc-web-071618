@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class PaintingDetail extends React.Component {
   render() {
@@ -31,4 +32,11 @@ class PaintingDetail extends React.Component {
   }
 }
 
-export default PaintingDetail;
+// ownProps == props that are passed in from the parent
+const mapStateToProps = (state, propsFromParent) => {
+  return {
+    painting: state.paintings.find(p => p.id === propsFromParent.paintingId)
+  };
+};
+
+export default connect(mapStateToProps)(PaintingDetail);

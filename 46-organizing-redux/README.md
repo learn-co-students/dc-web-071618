@@ -8,6 +8,15 @@ Our goal today is to add redux to an existing app. We'll cover:
 - `combineReducers`
 - `mapDispatchToProps`
 - Action Creators
+- Redux Devtools
+
+## Questions
+
+- Losing track of what state we have at a given moment
+- what are mapStateToProps and mapDispatchToProps?
+- where to put them?
+- what's the big picture standard redux boilerplate?
+- `connect`
 
 ## Thinking in Redux
 
@@ -15,17 +24,68 @@ So far, we've only used redux in a tiny sample application. Let's refactor our p
 
 The steps we'll follow when we're thinking in Redux resemble our Thinking In React steps.
 
+0. X add the libraries to the app
+
+
 1. Figure out the "shape" of your state
   - Minimal representation of UI state, same as React
   - Focus on single source of truth
   - "Shape" = keys and the _types_ of their values, e.g. { count: number, friends: [string] }
+
+{
+  paintings: [PaintingInfo],  
+  searchText: string
+}
+
+// in the route
+editing: boolean,
+selectedPaintingId: string (paintingId)
+route
+
+// in the painting form's local state
+form values
+
+
+
   - Decide initial values
+
+  {
+    paintings: [],  
+    searchText: ""
+  }
+
+
 2. Add 'static' version of state using Redux
   - Create 'default' reducers with initial values (or maybe mock data)
   - Connect state to components with `mapStateToProps`
+
+use connect and mapStateToProps
+- add the paintings data to the paintingsList
+- add the search text to the searchbar
+- added the painting to the form and detail views
+
 3. Figure out how state changes over time
   - List the actions that will be triggered in your app
   - Decide how your state should change in response to each action
+
+Actions                      ->    response in the reducer
+
+changing the search text (value) ->  change the search text
+
+
+update the painting details      ->  change the painting details
+vote on a particular painting    ->  painting.votes increases by 1
+
+
+...if we were loading the paintings
+loading the paintings
+
+// in the url
+selecting a painting
+clicking to about
+clicking on edit
+
+
 4. Implement actions and reducers
   - Write action creators
   - Write cases in reducers that correspond to each action
