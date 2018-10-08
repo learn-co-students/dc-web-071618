@@ -65,7 +65,7 @@ const fetchPaintings = () => {
   return (dispatch) => {
     fetch(URL)
       .then(res => res.json())
-      .then(paintings => dispatch(fetchedPaintings(paintings))) 
+      .then(paintings => dispatch(fetchedPaintings(paintings)))
   }
 }
 ```
@@ -92,7 +92,7 @@ const fetchPaintings = () => {
     dispatch(loadingPaintings())
     fetch(URL)
       .then(res => res.json())
-      .then(paintings => dispatch(fetchedPaintings(paintings))) 
+      .then(paintings => dispatch(fetchedPaintings(paintings)))
   }
 }
 ```
@@ -128,7 +128,7 @@ It can do whatever it wants with the action, and then call the `next` middleware
 
 ## More complex thunks
 
-Now that we are loading our paintings in from the server, lets make our increaseVotes and updatePainting actions actually save the new data to our server. 
+Now that we are loading our paintings in from the server, lets make our increaseVotes and updatePainting actions actually save the new data to our server.
 
 With thunk action creators, we can change this logic 'under the hood' - without the components even knowing the difference.
 
@@ -136,7 +136,7 @@ With thunk action creators, we can change this logic 'under the hood' - without 
 function increaseVotes(paintingId) {
   // return { type: "INCREASE_VOTES", paintingId }
   return (dispatch) => {
-    // we need the painting's votes! 
+    // we need the painting's votes!
     const votes = ???
     fetch(URL, {method: "PATCH", body: JSON.stringify({
       id: paintingId,
@@ -152,7 +152,7 @@ Conveniently, thunk actions get called with not only the `dispatch` function, bu
 function increaseVotes(paintingId) {
   // return { type: "INCREASE_VOTES", paintingId }
   return (dispatch, getState) => {
-    // we need the painting's votes! 
+    // we need the painting's votes!
     const votes = getState().paintings.find(p => p.id === paintingId).votes + 1;
     fetch(URL, {method: "PATCH", body: JSON.stringify({
       id: paintingId,
@@ -164,10 +164,11 @@ function increaseVotes(paintingId) {
 
 ## Challenge: Thunk Actions
 
-1. Dispatch an action from the `increaseVotes` thunk action to update the painting once the fetch resolves. You may need to update the reducer.
-2. Add a thunk action to update the painting's title and artist info on the server. 
+0. Fix the paintingForm and paintingDetail components so they don't break on refresh
+X 1. Dispatch an action from the `increaseVotes` thunk action to update the painting once the fetch resolves. You may need to update the reducer.
+2. Add a thunk action to update the painting's title and artist info on the server.
 3. After the promise resolves, update the painting in the store.
-4. Update your thunks - `increaseVotes` and `updatePainting` to use the same helper function once the promise resolves. 
+4. Update your thunks - `increaseVotes` and `updatePainting` to use the same helper function once the promise resolves.
 
 ## BONUS Challenge: PaintingContainer Refactor
 
