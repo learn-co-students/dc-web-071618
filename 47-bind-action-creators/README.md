@@ -8,7 +8,7 @@ Our goal today is to practice adding features to an app with redux. We'll cover:
 - `mapDispatchToProps`
 - Action Creators
 - bindActionCreators
-- `connect` syntactic sugar 
+- `connect` syntactic sugar
 
 ## Thinking in Redux
 
@@ -25,8 +25,14 @@ Actions                      ->    response in the reducer
 
 X changing the search text (value) ->  change the search text
 
-update the painting details      ->  change the painting details
-vote on a particular painting    ->  painting.votes increases by 1
+
+#### TODO:
+
+X vote on a particular painting    ->  painting.votes increases by 1
+
+X update the painting details      ->  change the painting details
+
+
 
 4. Implement actions and reducers
   - Write action creators

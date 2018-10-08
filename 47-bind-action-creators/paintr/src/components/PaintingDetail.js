@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { increaseVotes as vote } from "../redux/actions";
 
 class PaintingDetail extends React.Component {
   render() {
@@ -20,8 +21,6 @@ class PaintingDetail extends React.Component {
         <button
           className="ui button"
           onClick={() => {
-            // tempting but wrong!!
-            // this.props.painting.votes += 1;
             this.props.vote(this.props.painting.id);
           }}
         >
@@ -39,4 +38,17 @@ const mapStateToProps = (state, propsFromParent) => {
   };
 };
 
-export default connect(mapStateToProps)(PaintingDetail);
+// want a 'vote' prop
+// it should dispatch an action to increase the votes on the painting
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     vote: paintingId => {
+//       dispatch(increaseVotes(paintingId));
+//     }
+//   };
+// };
+
+export default connect(
+  mapStateToProps,
+  { vote }
+)(PaintingDetail);

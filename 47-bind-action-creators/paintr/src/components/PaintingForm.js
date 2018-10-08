@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+// import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { updatePainting } from "../redux/actions";
 
 class PaintingForm extends React.Component {
   constructor(props) {
@@ -21,7 +23,11 @@ class PaintingForm extends React.Component {
       birthday: this.state.birthday,
       deathday: this.state.deathday
     };
-    this.props.updatePaintingInfo(this.props.painting.id, info);
+    this.props.updatePaintingInfo({
+      paintingId: this.props.painting.id,
+      ...info
+    });
+    this.props.history.push("/paintings/" + this.props.painting.id);
   };
 
   render() {
@@ -78,4 +84,18 @@ const mapStateToProps = (state, propsFromParent) => {
   };
 };
 
-export default connect(mapStateToProps)(PaintingForm);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     updatePaintingInfo: ({ paintingId, title, name, birthday, deathday }) =>
+//       dispatch(updatePainting({ paintingId, title, name, birthday, deathday }))
+//   };
+// };
+
+// const mapDispatchToProps = dispatch => {
+//   return bindActionCreators({ updatePaintingInfo: updatePainting }, dispatch);
+// };
+
+export default connect(
+  mapStateToProps,
+  { updatePaintingInfo: updatePainting }
+)(withRouter(PaintingForm));

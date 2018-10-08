@@ -22,13 +22,13 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onChange: value => dispatch(changeSearchText(value))
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onChange: value => dispatch(changeSearchText(value))
+//   };
+// };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { onChange: changeSearchText }
 )(Searchbar);
