@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import paintingsData from "../paintings.json";
+// import paintingsData from "../paintings.json";
 
 const searchTextReducer = (state = "", action) => {
   switch (action.type) {
@@ -10,15 +10,12 @@ const searchTextReducer = (state = "", action) => {
   }
 };
 
-const paintingsReducer = (state = paintingsData.paintings, action) => {
+const paintingsReducer = (state = [], action) => {
   switch (action.type) {
-    case "INCREASE_VOTES":
+    case "PAINTING_UPDATED":
       return state.map(painting => {
-        if (painting.id === action.paintingId) {
-          return {
-            ...painting,
-            votes: painting.votes + 1
-          };
+        if (painting.id === action.painting.id) {
+          return action.painting;
         } else {
           return painting;
         }
@@ -40,6 +37,19 @@ const paintingsReducer = (state = paintingsData.paintings, action) => {
           return painting;
         }
       });
+    case "FETCHED_PAINTINGS":
+      return action.paintings;
+    default:
+      return state;
+  }
+};
+
+const loadingReducer = (state = false, action) => {
+  switch (action.type) {
+    case "FETCHING_PAINTINGS":
+      return true;
+    case "FETCHED_PAINTINGS":
+      return false;
     default:
       return state;
   }
@@ -47,7 +57,8 @@ const paintingsReducer = (state = paintingsData.paintings, action) => {
 
 const rootReducer = combineReducers({
   searchText: searchTextReducer,
-  paintings: paintingsReducer
+  paintings: paintingsReducer,
+  loading: loadingReducer
 });
 
 export default rootReducer;

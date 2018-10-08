@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 const PaintingsList = props => (
   <div className="ui container">
     <div className="ui celled selection list">
+      {props.loading ? "Loading..." : null}
       {props.paintings.map(painting => (
         <PaintingListItem
           key={painting.id}
@@ -19,6 +20,7 @@ const PaintingsList = props => (
 // state: { paintings: [], searchText: "" }
 const mapStateToProps = state => {
   return {
+    loading: state.loading,
     paintings: state.paintings.filter(
       p =>
         p.title.toLowerCase().includes(state.searchText.toLowerCase()) ||

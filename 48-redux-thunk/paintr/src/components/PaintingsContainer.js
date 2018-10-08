@@ -1,12 +1,19 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
 import PaintingsList from "./PaintingsList";
 import PaintingDetail from "./PaintingDetail";
 import PaintingForm from "./PaintingForm";
 import Searchbar from "./Searchbar";
 
+import { fetchPaintings } from "../redux/actions";
+
 class PaintingsContainer extends React.Component {
+  componentDidMount() {
+    this.props.fetchPaintings();
+  }
+
   render() {
     return (
       <div>
@@ -14,11 +21,7 @@ class PaintingsContainer extends React.Component {
           <Route
             path="/paintings/:paintingId/edit"
             render={data => {
-              return (
-                <PaintingForm
-                  paintingId={data.match.params.paintingId}
-                />
-              );
+              return <PaintingForm paintingId={data.match.params.paintingId} />;
             }}
           />
           <Route
@@ -44,4 +47,7 @@ class PaintingsContainer extends React.Component {
   }
 }
 
-export default PaintingsContainer;
+export default connect(
+  null,
+  { fetchPaintings }
+)(PaintingsContainer);
