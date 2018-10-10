@@ -5,19 +5,24 @@ import { connect } from "react-redux";
 import { updatePainting } from "../redux/actions";
 
 class PaintingForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: this.props.painting.title,
-      name: this.props.painting.artist.name,
-      birthday: this.props.painting.artist.birthday,
-      deathday: this.props.painting.artist.deathday
-    };
+  state = {};
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.painting && props.painting.id !== state.id) {
+      return {
+        id: props.painting.id,
+        title: props.painting.title,
+        name: props.painting.artist.name,
+        birthday: props.painting.artist.birthday,
+        deathday: props.painting.artist.deathday
+      };
+    }
+    return null;
   }
 
   onSave = e => {
     e.preventDefault();
-    let info = {
+    let payload = {
       title: this.state.title,
       name: this.state.name,
       birthday: this.state.birthday,
@@ -25,12 +30,19 @@ class PaintingForm extends React.Component {
     };
     this.props.updatePaintingInfo({
       paintingId: this.props.painting.id,
-      ...info
+      payload
     });
     this.props.history.push("/paintings/" + this.props.painting.id);
   };
 
   render() {
+    if (!this.props.painting) {
+      return (
+        <div>
+          Loading your painting...<div>(Thank you for your patience)</div>
+        </div>
+      );
+    }
     return (
       <div className="ui centered card">
         <div>

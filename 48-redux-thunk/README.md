@@ -144,7 +144,7 @@ function increaseVotes(paintingId) {
     })})
   }
 }
-```
+
 
 Conveniently, thunk actions get called with not only the `dispatch` function, but also the `getState` function.
 
@@ -164,11 +164,15 @@ function increaseVotes(paintingId) {
 
 ## Challenge: Thunk Actions
 
-0. Fix the paintingForm and paintingDetail components so they don't break on refresh
+X 0. Fix the paintingForm and paintingDetail components so they don't break on refresh
+
+
 X 1. Dispatch an action from the `increaseVotes` thunk action to update the painting once the fetch resolves. You may need to update the reducer.
-2. Add a thunk action to update the painting's title and artist info on the server.
-3. After the promise resolves, update the painting in the store.
-4. Update your thunks - `increaseVotes` and `updatePainting` to use the same helper function once the promise resolves.
+
+X 2. Add a thunk action to update the painting's title and artist info on the server.
+
+X 3. After the promise resolves, update the painting in the store.
+X 4. Update your thunks - `increaseVotes` and `updatePainting` to use the same helper function once the promise resolves.
 
 ## BONUS Challenge: PaintingContainer Refactor
 

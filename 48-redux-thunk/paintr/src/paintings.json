@@ -12,15 +12,14 @@
         "diameter": null
       },
       "slug": "petrus-christus-portrait-of-a-carthusian",
-      "title": "Portrait of a Carthusian",
+      "title": "Portrait of Carthusian",
       "image": "https://d32dm0rphc51dk.cloudfront.net/pVc7CubFzVlPhbErTAqyYg/medium.jpg",
       "artist": {
         "name": "Petrus Christus",
-        "hometown": "Baarle-Hertog, Belgium",
         "birthday": "1410",
         "deathday": "1475"
       },
-      "votes": 81
+      "votes": 82
     },
     {
       "id": "59bd5a4c275b247913821d2a",

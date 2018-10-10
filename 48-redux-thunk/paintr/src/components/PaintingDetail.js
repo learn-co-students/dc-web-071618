@@ -5,6 +5,13 @@ import { increaseVotes as vote } from "../redux/actions";
 
 class PaintingDetail extends React.Component {
   render() {
+    if (!this.props.painting) {
+      return (
+        <div>
+          Loading your painting...<div>(Thank you for your patience)</div>
+        </div>
+      );
+    }
     return (
       <div>
         <img alt={this.props.painting.title} src={this.props.painting.image} />
@@ -33,8 +40,9 @@ class PaintingDetail extends React.Component {
 
 // ownProps == props that are passed in from the parent
 const mapStateToProps = (state, propsFromParent) => {
+  let painting = state.paintings.find(p => p.id === propsFromParent.paintingId);
   return {
-    painting: state.paintings.find(p => p.id === propsFromParent.paintingId)
+    painting: painting
   };
 };
 

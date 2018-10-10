@@ -20,23 +20,6 @@ const paintingsReducer = (state = [], action) => {
           return painting;
         }
       });
-    case "UPDATE_PAINTING":
-      return state.map(painting => {
-        if (painting.id === action.paintingId) {
-          return {
-            ...painting,
-            title: action.payload.title,
-            artist: {
-              ...painting.artist,
-              name: action.payload.name,
-              birthday: action.payload.birthday,
-              deathday: action.payload.deathday
-            }
-          };
-        } else {
-          return painting;
-        }
-      });
     case "FETCHED_PAINTINGS":
       return action.paintings;
     default:

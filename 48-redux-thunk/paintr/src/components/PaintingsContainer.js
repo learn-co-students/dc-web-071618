@@ -47,7 +47,14 @@ class PaintingsContainer extends React.Component {
   }
 }
 
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchPaintings: () => dispatch(fetchPaintings())
+//   };
+// };
+
 export default connect(
   null,
   { fetchPaintings }
+  // mapDispatchToProps
 )(PaintingsContainer);

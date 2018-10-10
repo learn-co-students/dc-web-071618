@@ -30,12 +30,41 @@ function increaseVotes(paintingId) {
   // return { type: "INCREASE_VOTES", paintingId };
 }
 
-function updatePainting({ title, name, birthday, deathday, paintingId }) {
-  return {
-    type: "UPDATE_PAINTING",
-    payload: { title, name, birthday, deathday },
-    paintingId
+// we want this to update our painting on the backend
+function updatePainting({ payload, paintingId }) {
+  // async, so return a thunk action
+  return function(dispatch, getState) {
+    // console.log(args);
+    // when we start saving, (before sending the fetch)
+    // dispatch a 'saving' action
+    // patch fetch to the server with the updated info
+    // update our store with the response from the server
+    const artist = getState().paintings.find(p => p.id === paintingId).artist;
+    fetch(`${URL}/${paintingId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        title: payload.title,
+        artist: {
+          ...artist,
+          name: payload.name,
+          birthday: payload.birthday,
+          deathday: payload.deathday
+        }
+      }),
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(painting => dispatch(paintingUpdated(painting)));
   };
+
+  // return {
+  //   type: "UPDATE_PAINTING",
+  //   payload,
+  //   paintingId
+  // };
 }
 
 function fetchedPaintings(paintings) {
