@@ -28,6 +28,10 @@ class ApplicationController < ActionController::API
     ENV['TOKEN_AUTH_SECRET']
   end
 
+  # def fetch_to_google
+  #   fetch(key: ENV['GOOGLE_API_KEY'])
+  # end
+
   def encode(payload)
     JWT.encode(payload, secret_key, 'HS256')
   end

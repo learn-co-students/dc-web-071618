@@ -1,6 +1,5 @@
 import React from "react";
-
-const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+import { BASE_URL } from "../config";
 
 class Login extends React.Component {
   state = {
