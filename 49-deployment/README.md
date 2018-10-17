@@ -64,11 +64,14 @@ Strategy:
   `ENV['SECRET_KEY_BASE']`
 - secrets
 - which database we access
+
+
 - asset storage (CDN vs local)
 - where blobs get saved (local machine vs. S3)
 - where logs and debug info get logged
 - running on different hardware (different OS)
   - different versions of dependencies might be installed
+
 - differences within your application
   - throttling usage / performance differences
   - 'feature flags' turn on and off features
@@ -244,3 +247,14 @@ heroku rollback [version]
 **What is nginx? (vs. puma vs. other options)**
 - usually used as a load balancer
 - handles different routes by directing requests to different applications
+
+
+
+
+## Questions
+* Most Common Bugs when people use heroku?
+* Are deploys usually that quick?
+  - size of applications
+  - bound is usually running tests
+* how to config localhost (to avoid spreading process.env everywhere)
+* API keys
