@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsContaier matches its snapshot when it receives no props 1`] = `
+<div
+  className="postsContainer"
+>
+  <p>
+    hello
+  </p>
+</div>
+`;
+
+exports[`PostsContaier matches its snapshot when it receives posts as a prop 1`] = `
+<div
+  className="postsContainer"
+>
+  <Post
+    key="1"
+    post={
+      Object {
+        "author": "me",
+        "id": 1,
+        "title": "post1",
+      }
+    }
+  />
+  <Post
+    key="2"
+    post={
+      Object {
+        "author": "you",
+        "id": 2,
+        "title": "post2",
+      }
+    }
+  />
+  <Post
+    key="3"
+    post={
+      Object {
+        "author": "bob",
+        "id": 3,
+        "title": "post3",
+      }
+    }
+  />
+  <p>
+    hello
+  </p>
+</div>
+`;

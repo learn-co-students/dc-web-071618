@@ -122,4 +122,16 @@ class Counter extends Component {
   }
 }
 
+function withBlue(ComponentToWrap) {
+  return class WithBlue extends Component {
+    constructor() {
+      super();
+      this.color = "blue";
+    }
+    render() {
+      return <ComponentToWrap color={this.color} {...this.props} />;
+    }
+  };
+}
+
 ReactDOM.render(<App />, document.getElementById("root"));

@@ -69,7 +69,9 @@ function addToysToDom(toy) {
   likeBtn.className = "like-me";
   likeBtn.id = `toy-${toy.id}`;
   likeBtn.addEventListener("click", () => {
-    updateLikes(likeBtn.id);
+    let toyId = likeBtn.id.split("-")[1];
+    console.log(toyId);
+    updateLikes(toyId);
   });
 
   div.appendChild(name);
@@ -85,9 +87,8 @@ function addToysToDom(toy) {
 //reflect new likes value on the DOM
 
 function updateLikes(toyId) {
-  let toyIdNumber = toyId.split("-")[1];
-  let likeCount = document.querySelector(`#likes-${toyIdNumber}`).innerText;
-  fetch(`http://localhost:3000/toys/${toyIdNumber}`, {
+  let likeCount = document.getElementById(`likes-${toyId}`).innerText;
+  fetch(`http://localhost:3000/toys/${toyId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
@@ -99,8 +100,7 @@ function updateLikes(toyId) {
 }
 
 function updateLikesOnDom(toy) {
-  const likeCount = document.querySelector(`#likes-${toy.id}`);
-  likeCount.innerText = parseInt(likeCount.innerText) + 1;
+  document.getElementById(`likes-${toy.id}`).innerText++;
 }
 
 function init() {

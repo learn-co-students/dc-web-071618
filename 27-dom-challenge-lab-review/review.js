@@ -1,112 +1,91 @@
+// As a user, i should see the timer increment every second once the page has loaded
+// As a user, i can manually increment and decrement the counter as i like
+// As a user, i can like an individual number of the counter. I should see the appropriate number of likes associated with that particular number
+// As a user I can pause the game, which should disable all buttons except the pause button, which should now show the text 'resume'
+// As a user I can leave comments on my gameplay, such as "Wow, what a fun game this is"?
 let count = 0;
-const counter = document.getElementById("counter");
-const up = document.getElementById("+");
-const down = document.getElementById("-");
-const like = document.getElementById("<3");
-const likes = document.querySelector(".likes");
-const pause = document.getElementById("pause");
-const form = document.getElementById("comment-form");
-const input = document.getElementById("comment-input");
-const comments = document.getElementById("list");
 let paused = false;
-let likeTracker = {};
+// let likeTracker = {}
 
-//start by setting up counter
-//function to increment counter
+// To see this fully implemented,
+// check out (https://github.com/learn-co-students/dc-web-071618/blob/master/27-dom-challenge-lab-review/review.js)
 
-//handle Comments
-function getFormData() {
-  return input.value;
-}
+// if(!likeTracker[count]) {
+//   likeTracker[count] = 1
+// } else {
+//   likeTracker[count] += 1
+// }
 
-function disableButtons() {
-  // pause.addEventListener("click", () => {
-  let btns = Array.from(document.querySelectorAll(".disable-me"));
-  console.log(btns);
-  btns.forEach(btn => {
-    if (!paused) {
-      btn.disabled = false;
-    } else {
-      btn.disabled = true;
-    }
-  });
-  // });
-}
+document.addEventListener("DOMContentLoaded", function() {
+  // add event listeners for plus and minus buttons
+  let plusButton = document.getElementById("+");
+  let minusButton = document.getElementById("-");
+  let pauseButton = document.getElementById("pause");
+  let commentForm = document.getElementById("comment-form");
+  plusButton.addEventListener("click", incrementHandler);
+  minusButton.addEventListener("click", decrementHandler);
+  pauseButton.addEventListener("click", togglePaused);
+  commentForm.addEventListener("submit", commentSubmissionHandler);
+});
 
-function addSubmitListener() {
-  form.addEventListener("submit", e => {
-    // e.preventDefault();
-    addCommentToDom(e);
-    form.reset();
-  });
-}
+setInterval(tickingClock, 1000);
 
-function addCommentToDom(e) {
-  e.preventDefault();
-  let comment = document.createElement("li");
-  comment.innerText = getFormData();
-  comments.appendChild(comment);
-}
-
-function addButtonListeners() {
-  up.addEventListener("click", incrementCount);
-  down.addEventListener("click", decrementCount);
-  like.addEventListener("click", handleLikes);
-  pause.addEventListener("click", () => {
-    pauseClock();
-    disableButtons();
-  });
-  // pause.addEventListener("click");
-}
-
-//handle likes
-function handleLikes() {
-  if (!likeTracker[count]) {
-    likeTracker[count] = 1;
-    let li = document.createElement("li");
-    li.innerText = `You have liked ${count} one time`;
-    li.id = count;
-    likes.appendChild(li);
-  } else {
-    likeTracker[count] += 1;
-    let likedNum = document.getElementById(count);
-    likedNum.innerText = `You have liked ${count} ${likeTracker[count]} times!`;
-  }
-}
-
-//pause function
-function pauseClock() {
-  paused = !paused;
-  if (paused) {
-    pause.innerText = "resume";
-  } else {
-    pause.innerText = "pause";
-  }
-  console.log("Paused?", paused);
-}
-
-//clock functions
-function tickingClock() {
-  setInterval(incrementCount, 1000);
-}
-
-function incrementCount() {
-  if (!paused) {
-    count++;
-    counter.innerText = count;
-  }
-}
-
-function decrementCount() {
-  count--;
+function incrementHandler(e) {
+  increment();
+  let counter = document.querySelector("#counter");
   counter.innerText = count;
 }
 
-function init() {
-  tickingClock();
-  addButtonListeners();
-  addSubmitListener();
-  // disableButtons();
+function decrementHandler() {
+  decrement();
+  let counter = document.querySelector("#counter");
+  counter.innerText = count;
 }
 
-document.addEventListener("DOMContentLoaded", init);
+function tickingClock() {
+  // console.log("inside of ticking clock");
+  if (!paused) {
+    increment();
+  }
+  let counter = document.querySelector("#counter");
+  counter.innerText = count;
+}
+
+function increment() {
+  count += 1;
+}
+
+function decrement() {
+  count -= 1;
+}
+
+function togglePaused() {
+  paused = !paused;
+  let btns = document.querySelectorAll(".disable-me");
+  let pauseButton = document.getElementById("pause");
+
+  if (paused) {
+    btns.forEach(btn => (btn.disabled = true));
+    pauseButton.innerText = "resume";
+  } else {
+    pauseButton.innerText = "pause";
+    btns.forEach(btn => (btn.disabled = false));
+  }
+  console.log(paused);
+}
+
+// when the form is submitted:
+
+function commentSubmissionHandler(e) {
+  debugger;
+  event.preventDefault();
+  // grab the value of the form's input field
+  let comment = document.getElementById("comment-input").value;
+  // display this grabbed value on Dom
+  //put comment value inside of a list item
+  let commentList = document.getElementById("list");
+  let li = document.createElement("li");
+  li.innerText = comment;
+  commentList.appendChild(li);
+  event.target.reset();
+}

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post matches its snapshot 1`] = `
+<div
+  className="postComponent"
+>
+  <a
+    href="www.google.com"
+  >
+    <h3>
+      Im a dummy
+    </h3>
+  </a>
+  <p>
+     posted_by: 
+    A real dummy
+  </p>
+</div>
+`;
